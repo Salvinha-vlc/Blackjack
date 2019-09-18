@@ -85,7 +85,7 @@ def checking_blackjack_preflop(bet, cash_remaining, player_hand_value, dealer_ha
     if dealer_hand_value == 21:
         print("Dealer wins! - Blackjack")
 
-        if cash_remaining == bet*(1.5):
+        if cash_remaining <= bet*(1.5):
             cash_remaining -= int(bet)
 
         else:
