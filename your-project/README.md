@@ -1,7 +1,7 @@
 <img src="https://bit.ly/2VnXWr2" alt="Ironhack Logo" width="100"/>
 
-# Title of My Project
-Salvador Rocher - Casino Blackjack 
+# Casino Blackjack 
+Salvador Rocher
 
 Data Analytics 06-19, Barcelona, 28-June-19
 
