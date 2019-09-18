@@ -85,11 +85,11 @@ def checking_blackjack_preflop(bet, cash_remaining, player_hand_value, dealer_ha
     if dealer_hand_value == 21:
         print("Dealer wins! - Blackjack")
 
-        if cash_remaining <= bet*(1.5):
+        if cash_remaining == int(bet)*1.5:
             cash_remaining -= int(bet)
 
         else:
-            cash_remaining -= int(bet)*(1.5)
+            cash_remaining -= int(bet)*1.5
 
         print("Your cash remaining is: %d €" % cash_remaining)
         return cash_remaining
@@ -132,9 +132,12 @@ def another_card():
 
 def cards_post_flop(agent, deck_postflop, agent_cards, agent_hand_value):
 
-    card_value = deck_postflop[random.choice(list(deck_postflop.keys()))]
-    agent_cards.append(card_value)
+    post_flop_card = random.choice(list(deck_postflop.keys()))
+    agent_cards.append(post_flop_card)
+
+    card_value = deck_postflop[post_flop_card]
     agent_hand_value += card_value
+
     print(f"\n{agent}'s card is {agent_cards[-1]}")
     print(f"{agent}'s hand value is {agent_hand_value}")
     return agent_cards, agent_hand_value
