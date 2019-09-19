@@ -1,6 +1,6 @@
 import game_functions as gf
 import constants as c
-
+import time
 
 player_hand_value = 0
 dealer_hand_value = 0
@@ -48,7 +48,11 @@ while cash_remaining >= 50 and question == "Y":
             question = gf.keep_gambling(cash_remaining)
 
         else:
+            print(f"\n----------------------------------------- Dealer turn -------------------------------------------")
+
             while dealer_hand_value < 17 or dealer_hand_value < player_hand_value:
+
+                time.sleep(2)
 
                 dealer_cards, dealer_hand_value = gf.cards_post_flop(c.dealer, c.deck_postflop, dealer_cards, dealer_hand_value)
 
@@ -58,8 +62,8 @@ while cash_remaining >= 50 and question == "Y":
             else:
                 cash_remaining = gf.final_results(player_hand_value, dealer_hand_value, bet, cash_remaining)
 
-            print("Your cash remaining is: %d €" % cash_remaining)
+            print("\nYour cash remaining is: %d €" % cash_remaining)
             question = gf.keep_gambling(cash_remaining)
 
 if cash_remaining < 50 and question == "Y":
-    print("Sorry, you don't have enough cash to keep playing on this table")
+    print("\nSorry, you don't have enough cash to keep playing on this table.")

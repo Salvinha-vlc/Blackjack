@@ -1,5 +1,5 @@
 import random
-
+import time
 
 def initial_cash():
 
@@ -34,12 +34,12 @@ def value_cards_player(deck, player_cards):
         return sum(hand)
 
     elif player_cards[0] == "A" and player_cards[1] == "A":
-        ace_value = input("Do you want your first ace to have a value of 1 or 11?: ")
+        ace_value = input(f"\nDo you want your first ace to have a value of 1 or 11?: ")
 
         while ace_value not in ["1", "11"]:
             ace_value = input("Please indicate your ace's chosen value by typing 1 or 11 ")
 
-        ace_value_2 = input("Do you want your second ace to have a value of 1 or 11?: ")
+        ace_value_2 = input(f"\nDo you want your second ace to have a value of 1 or 11?: ")
 
         while ace_value_2 not in ["1", "11"]:
             ace_value_2 = input("Please indicate your ace's chosen value by typing 1 or 11 ")
@@ -49,7 +49,7 @@ def value_cards_player(deck, player_cards):
 
     else:
 
-        ace_value = input("Do you want your ace to have a value of 1 or 11?: ")
+        ace_value = input(f"\nDo you want your ace to have a value of 1 or 11?: ")
 
         while ace_value not in ["1", "11"]:
             ace_value = input("Please indicate your ace's chosen value by typing 1 or 11 ")
@@ -83,21 +83,23 @@ def value_cards_dealer(deck, dealer_cards):
 def checking_blackjack_preflop(bet, cash_remaining, player_hand_value, dealer_hand_value):
 
     if dealer_hand_value == 21:
-        print("Dealer wins! - Blackjack")
+        time.sleep(1)
+        print("\nDealer wins! - Blackjack")
 
-        if cash_remaining == int(bet)*1.5:
+        if cash_remaining <= (int(bet))*1.5:
             cash_remaining -= int(bet)
 
         else:
             cash_remaining -= int(bet)*1.5
 
-        print("Your cash remaining is: %d €" % cash_remaining)
+        print("\nYour cash remaining is: %d €" % cash_remaining)
         return cash_remaining
 
     elif player_hand_value == 21:
-        print("Player wins! - Blackjack")
+        time.sleep(1)
+        print("\nPlayer wins! - Blackjack")
         cash_remaining = cash_remaining + int(bet)*1.5
-        print("Your cash remaining is: %d €" % cash_remaining)
+        print("\nYour cash remaining is: %d €" % cash_remaining)
         return cash_remaining
 
     else:
@@ -112,7 +114,7 @@ def keep_gambling(cash_remaining):
         question = input("Please indicate whether you want to keep playing or leave by typing Y or N ").upper()
 
     if question == "N":
-        print("Bye player. Your final cash is %d" % cash_remaining)
+        print("\nBye player! Your final cash is %d" % cash_remaining)
 
     else:
         print("\nOK, there we go")
@@ -145,33 +147,35 @@ def cards_post_flop(agent, deck_postflop, agent_cards, agent_hand_value):
 
 def busted(player_hand_value, dealer_hand_value, bet, cash_remaining):
 
+    time.sleep(1)
+
     if player_hand_value > 21:
-        print(f"Busted, Dealer wins!: ---> {dealer_hand_value}")
+        print(f"\nBusted. Dealer wins! ---> {dealer_hand_value}")
         cash_remaining = cash_remaining - int(bet)
-        print("Your cash remaining is: %d €" % cash_remaining)
+        print(f"\nYour cash remaining is: %d €" % cash_remaining)
         return cash_remaining
 
     elif dealer_hand_value > 21:
-        print(f"Busted, Player wins!")
+        print(f"\nBusted. Player wins!")
         cash_remaining += int(bet)
         return cash_remaining
 
 
 def final_results(player_hand_value, dealer_hand_value, bet, cash_remaining):
 
+    time.sleep(1)
+
     if player_hand_value > dealer_hand_value:
-        print("Player wins!")
+        print(f"\nPlayer wins!")
         cash_remaining += int(bet)
         return cash_remaining
 
     elif player_hand_value < dealer_hand_value:
-        print("Dealer wins!")
+        print(f"\nDealer wins!")
         cash_remaining -= int(bet)
         return cash_remaining
 
     elif player_hand_value == dealer_hand_value:
-        print("This is a tie")
+        print(f"\nThis is a tie")
         cash_remaining = cash_remaining
         return cash_remaining
-
-
