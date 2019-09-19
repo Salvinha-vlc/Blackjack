@@ -7,7 +7,7 @@ Data Analytics, Barcelona, July-19
 
 ## Content
 - [Project Description](#project-description) 
-- [Rules and Settings](#rules and settings) 
+- [Rules and Settings](#rules-and-settings) 
 - [Workflow](#workflow)
 - [Organization](#organization)
 - [Links](#links)
@@ -17,6 +17,8 @@ Data Analytics, Barcelona, July-19
 ## Project Description
 
 This projects presents a single-player blackjack game where one play against the dealer (computer). Games are in my opinion a good way to kick things off in Python, and Blackjack gathers the conditions to practice loops, functions, nested functions, and logical conditions all together in the mix. Besides it is fun! Try to beat the casino while managing your bankroll.
+
+The code final version is rendered in both Jupyter notebook and PyCharm and can be found in "your-code" folder. 
 
 <a name="rules and settings"></a>
 
